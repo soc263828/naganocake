@@ -12,5 +12,24 @@
 
   <body>
     <%= yield %>
+    <header>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     <div class="container">
+       <a class="nabar-brand">
+         <span>Nagano cake</span>
+       </a>
+
+       <div class="navbar-collapse collapse">
+         <ul class="navbar-nav ml-auto">
+           <p><%= link_to "会員登録", public_registrations_new_path %></p>
+           <p>ログイン</p>
+           <p><%= link_to "about", public_homes_about_path %></p>
+           <p>商品一覧</p>
+         </ul>
+       </div>
+     </div>
+   </nav>
+  </header>
+  <main></main>
   </body>
 </html>
