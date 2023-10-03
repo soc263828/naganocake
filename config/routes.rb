@@ -25,9 +25,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
     get 'homes/top'
 
-    get 'sessions/new'
-    get 'sessions/create'
-    get 'sessions/destroy'
   end
   namespace :public do
     get 'orders/new'
@@ -48,13 +45,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'customers/update'
     get 'customers/quit'
     get 'customers/out'
-
-    get 'sessions/new'
-    get 'sessions/create'
-    get 'sessions/destroy'
-
-    get 'registrations/new'
-    get 'registrations/create'
 
     get 'items/index'
     get 'items/show'
