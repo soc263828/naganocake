@@ -26,7 +26,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'homes/top'
 
   end
-  namespace :public do
+  
+   scope module: :public do
     get 'orders/new'
     get 'orders/log'
     get 'orders/thanks'
