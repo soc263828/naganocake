@@ -1,1 +1,22 @@
-<h1>商品一覧</h1>
+<h2>商品一覧</h2>
+    <table class="table-hover table-inverse">
+     <tbody>
+      <% @items.each do |item| %>
+      <tr>
+       <td>
+       <%= link_to item_path(@items) do %>
+        <%= image_tag @items.get_profile_image(100,100) %>
+       <% end %>
+       </td>
+       <td><%= link_to item.title, item_path(item)%></td>
+       <td><%= item.body %></td>
+       <td></td>
+      </tr>
+     <% end %>
+ </tbody>
+    </table>
+   </div>
+  </div>
+</div>
+
+</div>
