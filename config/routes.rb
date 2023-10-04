@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'public/homes#top'
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -26,7 +27,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'homes/top'
 
   end
-  
+
    scope module: :public do
     get 'orders/new'
     get 'orders/log'
@@ -41,9 +42,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'cart_items/destroy_all'
     get 'cart_items/create'
 
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
+
+   resources :customers
+   # get 'customers/:id/edit' => 'customers#edit',as: 'edit_customer'
     get 'customers/quit'
     get 'customers/out'
 
@@ -54,7 +55,5 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'homes/about'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
- namespace :public do
-   resources :homes
- end
+
 end
