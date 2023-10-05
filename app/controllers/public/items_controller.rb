@@ -5,5 +5,10 @@ class Public::ItemsController < ApplicationController
   end
 
   def show
+    
+  end
+  
+  def item_params
+    params.require(:item).permit(:name, :introduction, :image, :price)
   end
 end
