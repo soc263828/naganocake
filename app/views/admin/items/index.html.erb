@@ -1,0 +1,24 @@
+<h2>商品一覧</h2>
+<table class="table-hover table-inverse">
+  <th>商品ID</th>
+  <th>商品名</th>
+  <th>税抜き価格</th>
+     <tbody>
+    　<% @items.each do |item| %>
+      <tr>
+       <td>
+       <%= link_to admin_item_path(@items) do %>
+       <% end %>
+       </td>
+       <td><%= link_to item.name, admin_item_path(item)%></td>
+       <td><%= item.introduction %></td>
+       <td></td>
+      </tr>
+     <% end %>
+ </tbody>
+    </table>
+   </div>
+  </div>
+</div>
+
+</div>
