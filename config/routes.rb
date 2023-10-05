@@ -26,10 +26,13 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'orders/thanks'
     resources :cart_items
     get 'cart_items/destroy_all'
-    resources :customers
    # get 'customers/:id/edit' => 'customers#edit',as: 'edit_customer'
-    get 'customers/quit'
-    get 'customers/out'
+    get 'customers/quit' => 'customers#quit'
+    get 'customers' => 'customers#show'
+    get 'customers/edit' => 'customers#edit'
+    patch 'customers/out' => 'customers#out'
+    patch 'customers' => 'customers#update'
+    
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

@@ -1,18 +1,18 @@
 <h2>商品新規登録</h2>
 
-<%= form_with model: @admin, url:'/admin/items/new' do |f| %>
+<%= form_with model: Item.new, url: admin_items_path do |f| %>
 
-  <h4>商品画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
+  <%= f.label :image, "商品画像"  %>
+   <%= f.file_field(:image) %><br>
 
   <h4>商品名</h4>
-  <%= f.text_field :title %>
+  <%= f.text_field :name %>
 
   <h4>商品説明</h4>
-  <%= f.text_area :body %>
-  
+  <%= f.text_area :introduction %>
+
   <h4>税抜価格</h4>
-  <%= f.text_area :cost %>円
+  <%= f.text_area :price %>円
 
 
   <%= f.submit '新規登録' %>

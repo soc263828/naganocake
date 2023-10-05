@@ -3,7 +3,7 @@
     <tbody>
      <tr>
       <td>
-       <%= image_tag @item.get_profile_image(100,100) %>
+       <%= image_tag @item.get_item_image(100,100) %>
         <%= @item.name %>
       </td>
       <td>
@@ -15,6 +15,6 @@
       <td>
         <%= link_to "編集する", edit_admin_item_path(@item) %>
       </td>
-     
-      <% end %>
      </tr>
+    </tbody>
+  </table>
