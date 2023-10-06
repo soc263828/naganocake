@@ -19,8 +19,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
    scope module: :public do
     root to: 'homes#top'
+    get 'homes/about' => 'homes#about'
     resources :items
-    resources :homes
     resources :orders
     get 'orders/log'
     get 'orders/thanks'
@@ -32,7 +32,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'customers/edit' => 'customers#edit'
     patch 'customers/out' => 'customers#out'
     patch 'customers' => 'customers#update'
-    
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

@@ -1,22 +1,24 @@
 <h2>商品一覧</h2>
-    <table class="table-hover table-inverse">
-     <tbody>
-      <% @items.each do |item| %>
+<table class="table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜き価格</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
       <tr>
-       <td>
-       <%= link_to item_path(@items) do %>
-        <%= image_tag @items.get_item_image(100,100) %>
-       <% end %>
-       </td>
-       <td><%= link_to item.title, item_path(item)%></td>
-       <td><%= item.body %></td>
-       <td></td>
+        <td><%= item.id %></td>
+        <td>
+          <%= link_to item_path(item) do %>
+            <%= image_tag item.get_item_image(100, 100) %>
+          <% end %>
+        </td>
+        <td><%= link_to item.name, item_path(item) %></td>
+        <td><%= item.price %>円</td>
       </tr>
-     <% end %>
- </tbody>
-    </table>
-   </div>
-  </div>
-</div>
-
-</div>
+    <% end %>
+  </tbody>
+</table>
