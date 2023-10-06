@@ -1,0 +1,26 @@
+<h2><%= "#{@customer.last_name} #{@customer.first_name}" %>さんの会員情報</h2>
+
+<table>
+  <%= "会員ID: #{@customer.id}" %>
+</table>
+<table>
+  <%= "氏名: #{@customer.last_name} #{@customer.first_name}" %>
+</table>
+<table>
+  <%= "フリガナ: #{@customer.last_name_kana} #{@customer.first_name_kana}" %>
+</table>
+<table>
+  <%= "郵便番号: #{@customer.postal_code}" %>
+</table>
+<table>
+  <%= "住所: #{@customer.address}" %>
+</table>
+<table>
+  <%= "電話番号: #{@customer.telephone_number}" %>
+</table>
+<table>
+  <%= "メールアドレス: #{@customer.email}" %>
+</table>
+
+<%= link_to "編集する", edit_admin_customer_path(@customer) %>
+<%= link_to "注文履歴一覧を見る", orders_path %>

@@ -6,9 +6,11 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @item.save!
+    redirect_to cart_items_path(@item)
   end
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :image, :price)
+    params.require(:item).permit(:name, :introduction, :image, :price, :item_id, :amount)
   end
 end
