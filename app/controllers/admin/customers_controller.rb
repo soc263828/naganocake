@@ -9,9 +9,10 @@ class Admin::CustomersController < ApplicationController
   end
 
   def edit
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
   end
 
   def update
+    redirect_to admin_customer_path
   end
 end

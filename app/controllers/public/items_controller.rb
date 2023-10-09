@@ -6,8 +6,7 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @item.save!
-    redirect_to cart_items_path(@item)
+
   end
 
   def item_params

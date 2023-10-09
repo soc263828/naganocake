@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  before_action :authenticate_customer!
+  #before_action :authenticate_customer!
   before_action :customer_state, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
   def after_sign_in_path_for(resource)
-    customers_path
+    root_path
   end
 
 
@@ -29,9 +29,9 @@ end
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+   #def create
+     #redirect_to root_path
+   #end
 
   # DELETE /resource/sign_out
   # def destroy
