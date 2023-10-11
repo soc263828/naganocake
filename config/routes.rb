@@ -22,7 +22,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'homes/about' => 'homes#about'
     resources :items
     resources :orders
-    get 'orders/log'
+    post 'orders/log'
     get 'orders/thanks'
     resources :cart_items
     get 'cart_items/destroy_all'

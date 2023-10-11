@@ -1,7 +1,8 @@
 <h2>商品詳細</h2>
 <table class="table">
   <tbody>
-    <%= form_for @item do |f| %>
+    <%#= form_with @item do |f| %>
+    <%= form_with model: @cart_item, url: cart_items_path do |form| %>
       <tr>
         <td>
           <%= image_tag @item.get_item_image(100,100) %>
@@ -14,12 +15,11 @@
           <%= @item.price %>円
         </td>
         <td>
-          <%= form_with model: @item, url: cart_items_path do |form| %>
             <div class="field">
               <%= form.select :amount, [['1', 1], ['2', 2]], { id: "item_id", class: "amount" } %>
             </div>
             <%= form.submit 'Add to Cart', class: 'btn btn-primary' %>
-          <% end %>
+          <%# end %>
         </td>
       </tr>
     <% end %>
