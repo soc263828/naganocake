@@ -1,1 +1,19 @@
 <h2>注文情報確認</h2>
+
+<%= form_with model:@cart_item orders_thanks_path |f| %>
+<p>商品名</p>
+<p>単価（税込）</p>
+<p>数量</p>
+<p>小計</p>
+
+<p>送料</p>
+<p>商品合計</p>
+<p>請求金額</p>
+
+<h3>支払い方法</h3>
+
+<h3>お届け先住所</h3>
+
+
+<%= f.submit "注文を確定する" %>
+<% end 
