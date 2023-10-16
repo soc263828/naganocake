@@ -28,8 +28,13 @@
            <%= form.submit '変更', class: 'btn btn-primary' %>
          <% end %>
         </td>
+         <td>
+          <%= link_to "削除する", cart_items_destroy_path(cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+         </td>
         <td><%= cart_item.item.with_tax_price%></td>
         <td><%= cart_item.subtotal %></td>
+      <% @total += cart_item.subtotal %>
+
       </tr>
     <% end %>
     <%= link_to "買い物を続ける", root_path(current_customer) %>
@@ -37,3 +42,5 @@
 
   </tbody>
 </table>
+ <td>合計金額</td>
+  <%= @total %>円
