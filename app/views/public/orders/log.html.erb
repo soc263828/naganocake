@@ -1,12 +1,14 @@
 <h2>注文情報確認</h2>
 
-<%#= form_with model: @cart_item, url: orders_thanks_path do |f| %>
 <% @cart_items.each do |cart_item| %>
  <p>商品名</p>
  <%= cart_item.item.name %>
  <p>単価（税込）</p>
+ <%= cart_item.item.price %>
  <p>数量</p>
+ <%= cart_item.amount %>
  <p>小計</p>
+ <%= cart_item.item.price %>
 <% end %>
 
  <p>送料</p>
@@ -17,10 +19,10 @@
 
  <h3>お届け先住所</h3>
 
- <%= form_with model: @order, url: orders_path, do |f| %>
- <%= f.hidden_field  :charge, value: @order.charge %>
- <%= f.hidden_field  :payment_method, value: @order.payment_method %>
- <%= f.hidden_field  :postal_code, value: @order.postal_code %>
- <%= f.submit "注文を確定する" %>
+ <%= form_with model: @order, url: orders_path do |f| %>
+  <%= f.hidden_field  :charge, value: @order.charge %>
+  <%= f.hidden_field  :payment_method, value: @order.payment_method %>
+  <%= f.hidden_field  :postal_code, value: @order.postal_code %>
+  <%= f.submit "注文を確定する" %>
 
 <% end %>
