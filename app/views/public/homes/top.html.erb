@@ -7,3 +7,14 @@
 
 <h2>新着商品</h2>
 
+ <% @item.limit(4).each do |item| %>
+  <td>
+    <%= link_to item_path(item.id) do %>
+     <%= image_tag item.get_item_image(100, 100) %>
+    <% end %>
+    <%= item.name %>
+  </td>
+  <td>
+    <%= item.price %>円
+  </td>
+ <% end %>
