@@ -1,6 +1,6 @@
 <h2>注文情報確認</h2>
 <% @total = 0 %>
-<%= form_with model: @order, url: orders_path do |f| %>
+<%= form_with model: @order, url: orders_thanks_path do |f| %>
  <% @cart_items.each do |cart_item| %>
   <p>商品名</p>
   <%= cart_item.item.name %>

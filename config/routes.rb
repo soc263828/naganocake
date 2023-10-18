@@ -31,7 +31,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'customers/quit' => 'customers#quit'
     get 'customers' => 'customers#show'
     get 'customers/edit' => 'customers#edit'
-    patch 'customers/out' => 'customers#out'
+    delete 'customers/out' => 'customers#out'
     patch 'customers' => 'customers#update'
 
   end
