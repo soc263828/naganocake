@@ -10,6 +10,7 @@ class Public::OrdersController < ApplicationController
     @order.address = current_customer.address
     @order.name = current_customer.first_name + current_customer.last_name
     @cart_items = CartItem.where(customer_id: current_customer.id)
+    @order.postage = 800
   end
 
   def thanks

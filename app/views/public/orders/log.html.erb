@@ -1,25 +1,35 @@
 <h2>注文情報確認</h2>
+<% @total = 0 %>
+<%= form_with model: @order, url: orders_path do |f| %>
+ <% @cart_items.each do |cart_item| %>
+  <p>商品名</p>
+  <%= cart_item.item.name %>
+  <p>単価（税込）</p>
+  <%= cart_item.item.price %>
+  <p>数量</p>
+  <%= cart_item.amount %>
+  <p>小計</p>
+  <%= cart_item.item.price %>
+  <% @total += cart_item.subtotal %>
+ <% end %>
 
-<% @cart_items.each do |cart_item| %>
- <p>商品名</p>
- <%= cart_item.item.name %>
- <p>単価（税込）</p>
- <%= cart_item.item.price %>
- <p>数量</p>
- <%= cart_item.amount %>
- <p>小計</p>
- <%= cart_item.item.price %>
-<% end %>
+  <td>送料</td>
+  <%= @order.postage %>
+  <td>商品合計</td>
+  <%= @total %>
+  <td>請求金額</td>
+  <%= @total + @order.postage %>
+  <h3>支払い方法</h3>
+  <%= @order.payment_method_i18n %>
+  <h3>お届け先住所</h3>
+  <%= @order.postal_code %>
+  <%= @order.address %>
+  <%= @order.name %>
 
- <p>送料</p>
- <p>商品合計</p>
- <p>請求金額</p>
 
- <h3>支払い方法</h3>
 
- <h3>お届け先住所</h3>
-
- <%= form_with model: @order, url: orders_path do |f| %>
+  <%= f.hidden_field  :postage, value: @order.postage %>
+  <%= f.hidden_field  :charge, value: @order.charge %>
   <%= f.hidden_field  :charge, value: @order.charge %>
   <%= f.hidden_field  :payment_method, value: @order.payment_method %>
   <%= f.hidden_field  :postal_code, value: @order.postal_code %>

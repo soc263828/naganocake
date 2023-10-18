@@ -12,26 +12,16 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_up_path_for(resource)
     customers_show_path
   end
-protected
-def customer_state
-  @customer = Customer.find_by(email: params[:customer][:email])
-  return if !@customer
-  if @customer.valid_password?(params[:customer][:password])
-    if @customer.is_deleted == true
-      redirect_to new_customer_registration_path
-    end
 
-  end
-end
   # GET /resource/sign_in
   # def new
   #   super
   # end
 
   # POST /resource/sign_in
-   #def create
-     #redirect_to root_path
-   #end
+  # def create
+  #   super
+  # end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -44,4 +34,16 @@ end
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+protected
+def customer_state
+  @customer = Customer.find_by(email: params[:customer][:email])
+  return if !@customer
+  if @customer.valid_password?(params[:customer][:password])
+    if @customer.is_deleted == true
+      redirect_to new_customer_registration_path
+    end
+
+  end
+end
+
 end
