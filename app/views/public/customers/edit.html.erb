@@ -3,9 +3,9 @@
   <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-        <h1>あああああああ</h1>
+        <h1>会員情報一覧</h1>
 
-        <%= form_with model: @customer do |f| %>
+        <%= form_with model: @customer,url: customers_update_path do |f| %>
         <div class="form-group">
         <label for="inputName">姓</label><br>
         <%= f.text_field :last_name, autofocus: true, id:"inputName", placeholder:"last_name"%>

@@ -15,9 +15,26 @@ class Public::OrdersController < ApplicationController
 
   def thanks
     @cart_item = current_customer.oders
+    @order
   end
 
   def create
+    @cart_items = current_customer.cart_items
+    @order = current_customer.orders.new(order_params)
+　　@order.postage
+　　@order.postal_code
+　　@order.address
+　　@order.name
+　　@order.payment_method
+　　@order.charge
+    @order.save
+    @cart_items.each do |item|
+      order_detail = @order.order_details.new
+      items.amount
+      items.price
+    end
+    @cart_items = current_customer.cart_items.destroy
+    redirect_to  orders_thanks_path
   end
 
   def index
@@ -25,6 +42,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def confirm
@@ -37,7 +55,7 @@ class Public::OrdersController < ApplicationController
 
 private
 def order_params
-  params.require(:order).permit(:payment_method)
+  params.require(:order).permit(:payment_method, :postage, :charge, :postal_code)
 end
 
 end
