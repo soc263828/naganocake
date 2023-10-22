@@ -27,9 +27,9 @@
   <%= @order.name %>
 
 
-
+  <%= f.hidden_field  :name, value: @order.name %>
   <%= f.hidden_field  :postage, value: @order.postage %>
-  <%= f.hidden_field  :charge, value: @order.charge %>
+  <%= f.hidden_field  :address, value: @order.address %>
   <%= f.hidden_field  :charge, value: @order.charge %>
   <%= f.hidden_field  :payment_method, value: @order.payment_method %>
   <%= f.hidden_field  :postal_code, value: @order.postal_code %>
