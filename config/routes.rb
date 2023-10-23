@@ -14,9 +14,9 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'homes/about' => 'homes#about'
     resources :items
+    get 'orders/thanks'
     resources :orders
     post 'orders/log'
-    get 'orders/thanks'
     delete 'cart_items/destroy_all'
     delete 'cart_items/:id/destroy' => 'cart_items#destroy',as: 'cart_items_destroy'
     resources :cart_items, only: [:index, :update, :create]

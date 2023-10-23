@@ -19,8 +19,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def thanks
-    @cart_item = current_customer.oders
-    @order
   end
 
   def create
@@ -42,7 +40,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders
+
   end
 
   def show
@@ -59,7 +58,7 @@ class Public::OrdersController < ApplicationController
 
 private
 def order_params
-  params.require(:order).permit(:payment_method, :postage, :charge, :postal_code, :address, :name, :order_id, :item_id, :cart_item)
+  params.require(:order).permit(:payment_method, :postage, :charge, :postal_code, :address, :name, :order_id, :item_id, :cart_item, :amount)
 end
 
 end
