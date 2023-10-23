@@ -32,9 +32,9 @@ class Public::OrdersController < ApplicationController
     @cart_items.each do |item|
       order_detail = OrderDetail.new
       order_detail.order_id =@order.id
-      order_detail.item_id = cart_item.item_id
-      order_detail.amount = cart_item.amount
-      order_detail.price =(cart_item.item.price*1.1).floor
+      order_detail.item_id = item.item_id
+      order_detail.amount = item.amount
+      order_detail.price =(item.item.price*1.1).floor
       order_detail.save
     end
     current_customer.cart_items.destroy_all
@@ -59,7 +59,7 @@ class Public::OrdersController < ApplicationController
 
 private
 def order_params
-  params.require(:order).permit(:payment_method, :postage, :charge, :postal_code, :address, :name, :order_id, :item_id)
+  params.require(:order).permit(:payment_method, :postage, :charge, :postal_code, :address, :name, :order_id, :item_id, :cart_item)
 end
 
 end
