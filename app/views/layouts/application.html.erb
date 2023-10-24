@@ -6,12 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+
     <header>
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
      <div class="container">
@@ -22,21 +22,51 @@
        <div class="navbar-collapse collapse">
          <ul class="navbar-nav ml-auto">
            <% if customer_signed_in? %>
-             <p><%= link_to "マイページ", customers_path %></p>
-             <p><%= link_to "カート", cart_items_path %></p>
-             <p><%= link_to "商品一覧", items_path %></p>
-             <p><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></p>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+               <%= link_to "マイページ", customers_path %>
+               </li>
+               <li class="nav-item">
+               <%= link_to "カート", cart_items_path %>
+               </li>
+               <li class="nav-item">
+               <%= link_to "商品一覧", items_path %>
+               </li>
+               <li class="nav-item">
+               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+               </li>
+               </ul>
            <% elsif admin_signed_in? %>
-              <p><%= link_to "商品一覧", admin_items_path %></p>
-              <p><%= link_to "会員一覧", admin_customers_path %></p>
-              <p><%= link_to "注文履歴一覧", admin_root_path %></p>
-              <p>ジャンル一覧</p>
-              <p><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></p>
+           <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+              <%= link_to "商品一覧", admin_items_path %>
+              </li>
+              <li class="nav-item">
+              <%= link_to "会員一覧", admin_customers_path %>
+              </li>
+              <li class="nav-item">
+              <%= link_to "注文履歴一覧", admin_root_path %>
+              </li>
+              ジャンル一覧
+              <li class="nav-item">
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+              </li>
+              </ul>
            <% else %>
-             <p><%= link_to "会員登録", new_customer_registration_path %></p>
-             <p><%= link_to "ログイン", new_customer_session_path %></p>
-             <p><%= link_to "about", homes_about_path %></p>
-             <p><%= link_to "商品一覧", items_path %></p>
+           <ul class="navbar-nav ml-auto">
+             <li class="nav-item">
+             <%= link_to "会員登録", new_customer_registration_path %>
+             </li>
+             <li class="nav-item">
+             <%= link_to "ログイン", new_customer_session_path %>
+             </li>
+             <li class="nav-item">
+             <%= link_to "about", homes_about_path %>
+             </li>
+             <li class="nav-item">
+             <%= link_to "商品一覧", items_path %>
+             </li>
+             </ul>
            <% end %>
 
 
@@ -45,6 +75,6 @@
      </div>
    </nav>
   </header>
-  <main></main>
+  <%= yield %>
   </body>
 </html>

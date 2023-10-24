@@ -8,7 +8,6 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.integer :payment_method, null: false
       t.integer :charge, null: false
       t.integer :customer_id
-      t.integer :order_id
 
       t.timestamps
     end
