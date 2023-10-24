@@ -1,5 +1,5 @@
 <h2>注文履歴一覧</h2>
-
+<table>
 <thead>
     <tr>
       <th>購入日時</th>
@@ -7,4 +7,13 @@
       <th>注文個数</th>
     </tr>
 </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+     <td><%= order.created_at %></td>
+     <td><%= order.name %></td>
 
+    </tr>
+   <% end %>
+  </tbody>
+</table>

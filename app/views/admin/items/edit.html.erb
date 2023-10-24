@@ -6,6 +6,8 @@
         <h1>商品編集</h1>
 
         <%= form_with model: @item , url: admin_item_path do |f| %>
+          <%= f.label :image, "商品画像"  %><br>
+          <%= f.file_field(:image) %><br>
           <div class="form-group">
           <label for="inputName">商品名</label><br>
           <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"name"%>
