@@ -10,7 +10,11 @@
   <tbody>
     <% @orders.each do |order| %>
     <tr>
-     <td><%= order.created_at %></td>
+     <td>
+         <%= link_to admin_item_path(order) do %>
+          <%= order.created_at %>
+         <% end %>
+     </td>
      <td><%= order.name %></td>
      <% amount = 0 %>
      <% order.order_details.each do |order_detail| %>

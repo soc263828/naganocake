@@ -2,12 +2,13 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items.all
     @cart_item = CartItem.new
+    @cart_is_empty = @cart_items.empty?
   end
 
   def update
      @cart_item = CartItem.find(params[:id])
      @cart_item.update(cart_item_params)
-      flash[:notice] = "You have updated book successfully."
+      flash[:notice] = "You have updated successfully."
       redirect_to cart_items_path(@cart_item.id)
   end
 
