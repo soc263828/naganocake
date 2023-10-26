@@ -1,8 +1,10 @@
 <h2>注文履歴詳細</h2>
 
 <td>購入者</td>
+ <%= link_to admin_customer_path(@order.customer) do%>
 　<%= @order.customer.last_name %>
-　<%= @order.customer.first_name %><br />
+　<%= @order.customer.first_name %>
+ <% end %><br />
 <td>注文日</td>
  <%= @order.created_at %><br />
 <td>配送先</td>
